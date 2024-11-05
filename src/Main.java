@@ -14,11 +14,11 @@ public class Main {
         List<Llapis> caixa1 = new ArrayList<>();
         List<Llapis> caixa2 = new ArrayList<>();
 
-        // 3. Llenar una caja con colores aleatorios
+        // 3. Llenar una caja con 10 colores aleatorios y diferentes
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
             int color = random.nextInt(8);
-            caixa1.add(new Llapis(color, 1.0f)); // mismo grosor
+            caixa1.add(new Llapis(color, 1.0f)); // son del mismo grosor
         }
 
         // 4. Llenar la otra caja con colores y grosores aleatorios
@@ -29,6 +29,7 @@ public class Main {
         }
 
         // 5. Imprimir información de las dos cajas
+        System.out.println("Resposta: exercici 5");
         System.out.println("Caixa 1:");
         for (Llapis llapis : caixa1) System.out.println(llapis);
 
@@ -39,6 +40,7 @@ public class Main {
 
         // 6. Ordenar por color
         caixa1.sort(Comparator.comparingInt(Llapis::getColor).reversed());
+        System.out.println("Resposta: exercici 6");
         System.out.println("\nCaixa 1 ordenada por color:");
         caixa1.forEach(System.out::println);
 
@@ -49,16 +51,21 @@ public class Main {
                 return Float.compare(l1.getGruix(), l2.getGruix());
             }
         });
+        System.out.println("Resposta: exercici 7");
         System.out.println("\nCaixa 2 ordenada por gruix:");
         caixa2.forEach(System.out::println);
 
         // 8 y 9. Crear una LinkedList y añadir ambas cajas
         LinkedList<Llapis> linkedList = new LinkedList<>(caixa2);
         linkedList.addAll(caixa1);
+
+        // 10 Imprimeix el contingut de la LinkedList
+        System.out.println("Resposta: exercici 10");
         System.out.println("\nContenido de la LinkedList:");
         linkedList.forEach(System.out::println);
 
-        // 10 y 11. Eliminar duplicados
+        // 11. Eliminar duplicados
+        System.out.println("Resposta: exercici 11");
         List<Llapis> caixaUnica = new ArrayList<>(new HashSet<>(linkedList));
         System.out.println("\nCaixa única sin duplicados:");
         caixaUnica.forEach(System.out::println);
@@ -72,13 +79,22 @@ public class Main {
         mapColors.put(4, "Verd");
         mapColors.put(3, "Blanc");
 
+        System.out.println("Resposta: exercici 12");
         // Explicación: La clave 3 se sobrescribe, por lo que "Verd" se reemplaza por "Blanc"
+        System.out.println("    12.i  Explicació color verd y clau 3");
+        System.out.println("        En el map tenemos que la clave es unico, mientras que el valor puede " +
+                                    "repetirse. Por lo que esta pasando en el siguiente map es que \nal encontrar dos claves 3, " +
+                                    "le asigna blanc, luego toma el valor 4 " +
+                                    "y le asigna verd. ");
 
+        System.out.println("    12.ii");
         System.out.println("\nMapa de colores:");
         for (Map.Entry<Integer, String> entry : mapColors.entrySet()) {
             System.out.println("Clau: " + entry.getKey() + ", Valor: " + entry.getValue());
         }
 
+        System.out.println("");
+        System.out.println("    12.iii  Imprimeu Map(clau i valor)");
         System.out.println("\nValores del mapa:");
         for (String color : mapColors.values()) {
             System.out.println(color);
